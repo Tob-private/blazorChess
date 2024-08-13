@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("blazorChess")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8597a323cc738c849ab1abdf850dcc5b22261082")]
 [assembly: System.Reflection.AssemblyProductAttribute("blazorChess")]
 [assembly: System.Reflection.AssemblyTitleAttribute("blazorChess")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
