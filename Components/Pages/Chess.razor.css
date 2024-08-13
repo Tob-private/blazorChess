@@ -1,0 +1,12 @@
+#chessboard {
+    width: 800px;
+    height: 800px;
+    display: grid;
+    grid-template: repeat(8, 100px) / repeat(8, 100px);
+}
+.dark-square {
+    background-color: #A26E5B;
+}
+.light-square {
+    background-color: #ECD2BA;
+}

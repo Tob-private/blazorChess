@@ -1,0 +1,41 @@
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# NPM packages
+node_modules/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Files created by Visual Studio
+.vs/
+*.nupkg
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.vs/
+*.cache
+*.dbmdl
+*.bak
+*.backup
+*.BLOB
+*.db
+
+# Files created by Rider
+.idea/
+
+# JetBrains Rider
+.idea/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# OS-specific files
+.DS_Store
+Thumbs.db

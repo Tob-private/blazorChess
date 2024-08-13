@@ -1,0 +1,34 @@
+﻿@page "/"
+@rendermode InteractiveServer
+@using blazorChess.Components.Pages.Logic
+
+<h1>Im poggin out</h1>
+
+<div id="chessboard">
+    @for (int file = 0; file < 8; file++)
+    {
+
+        @for (int rank = 0; rank < 8; rank++)
+        {
+            int currentSquare = BoardClass.Squares[squareIndex];
+            
+            bool isLightSquare = (file + rank) % 2 != 0;
+            string squareColor = isLightSquare ? "light-square" : "dark-square";
+
+            <div class="boardSquare @squareColor" title="@Convert.ToString(currentSquare, 2)">
+                @Convert.ToString(currentSquare, 2)
+            </div>
+            squareIndex++;
+        }
+    }
+</div>
+
+@code {
+    public int squareIndex = 0;
+    protected override void OnInitialized()
+    {
+        Console.WriteLine("Page has loaded, initializing board");
+        BoardClass.Board();
+
+    }
+}
