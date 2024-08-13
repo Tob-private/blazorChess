@@ -10,3 +10,10 @@
 .light-square {
     background-color: #ECD2BA;
 }
+.boardSquare {
+    display: grid;
+    place-items: center;
+}
+.boardSquare>img {
+    width: 100%;
+}

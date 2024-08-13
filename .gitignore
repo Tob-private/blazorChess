@@ -16,13 +16,6 @@ ScaffoldingReadMe.txt
 *.user
 *.userosscache
 *.sln.docstates
-*.vs/
-*.cache
-*.dbmdl
-*.bak
-*.backup
-*.BLOB
-*.db
 
 # Files created by Rider
 .idea/
@@ -39,3 +32,7 @@ ScaffoldingReadMe.txt
 # OS-specific files
 .DS_Store
 Thumbs.db
+
+# Build output directories
+bin/
+obj/

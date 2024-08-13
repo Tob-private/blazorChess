@@ -11,12 +11,15 @@
         @for (int rank = 0; rank < 8; rank++)
         {
             int currentSquare = BoardClass.Squares[squareIndex];
-            
+            string imageName = $"{Convert.ToString(currentSquare, 2)}.svg"; 
+
             bool isLightSquare = (file + rank) % 2 != 0;
             string squareColor = isLightSquare ? "light-square" : "dark-square";
 
             <div class="boardSquare @squareColor" title="@Convert.ToString(currentSquare, 2)">
-                @Convert.ToString(currentSquare, 2)
+                @if (currentSquare != 0) {
+                    <img src="images/pieces/@imageName" alt="piece">
+                }
             </div>
             squareIndex++;
         }
