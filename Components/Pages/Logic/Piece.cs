@@ -1,7 +1,9 @@
-namespace blazorChess.Components.Pages.Logic {
-    public static class Piece {
+namespace blazorChess.Components.Pages.Logic
+{
+	public static class Piece
+	{
 
-        public const int None = 0;
+		public const int None = 0;
 		public const int King = 1;
 		public const int Pawn = 2;
 		public const int Knight = 3;
@@ -11,5 +13,6 @@ namespace blazorChess.Components.Pages.Logic {
 
 		public const int White = 8;
 		public const int Black = 16;
-    }
+	}
+
 }

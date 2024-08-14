@@ -7,7 +7,7 @@ namespace blazorChess.Components.Pages.Logic
     {
         public static readonly int[] Squares = new int[64];
         public const string startingFEN = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
-        public static void Board()
+        public static void NewGame()
         {
             LoadPositionFromFen(startingFEN);
         }
@@ -16,27 +16,32 @@ namespace blazorChess.Components.Pages.Logic
         {
             var PieceFromFen = new Dictionary<char, int>()
             {
-                ['k'] = Piece.King, 
-                ['p'] = Piece.Pawn, 
-                ['n'] = Piece.Knight, 
-                ['b'] = Piece.Bishop, 
-                ['r'] = Piece.Rook, 
+                ['k'] = Piece.King,
+                ['p'] = Piece.Pawn,
+                ['n'] = Piece.Knight,
+                ['b'] = Piece.Bishop,
+                ['r'] = Piece.Rook,
                 ['q'] = Piece.Queen
             };
-            
+
             string fenBoard = fen.Split(' ')[0];
             int file = 0, rank = 0;
 
             foreach (char symbol in fenBoard)
             {
-                if(symbol == '/') {
+                if (symbol == '/')
+                {
                     file = 0;
                     rank++;
-                } else {
+                }
+                else
+                {
                     if (char.IsDigit(symbol))
                     {
-                        file += (int) char.GetNumericValue(symbol);
-                    } else {
+                        file += (int)char.GetNumericValue(symbol);
+                    }
+                    else
+                    {
                         int pieceColor = char.IsUpper(symbol) ? Piece.White : Piece.Black;
                         int pieceType = PieceFromFen[char.ToLower(symbol)];
                         Squares[rank * 8 + file] = pieceType | pieceColor;
