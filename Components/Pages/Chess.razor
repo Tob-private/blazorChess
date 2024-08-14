@@ -1,6 +1,12 @@
 ﻿@page "/"
 @rendermode InteractiveServer
 @using blazorChess.Components.Pages.Logic
+@inherits LayoutComponentBase
+
+@{
+    // Reset squareIndex on each render
+    int squareIndex = 0;
+}
 
 <h1>Im poggin out</h1>
 
@@ -10,28 +16,46 @@
 
         @for (int rank = 0; rank < 8; rank++)
         {
-            int currentSquare = BoardClass.Squares[squareIndex];
-            string imageName = $"{Convert.ToString(currentSquare, 2)}.svg"; 
+            // Define local index variable
+            int localSquareIndex = squareIndex;
 
-            bool isLightSquare = (file + rank) % 2 != 0;
-            string squareColor = isLightSquare ? "light-square" : "dark-square";
+            // Check to ensure index is within bounds
+            if (localSquareIndex < BoardClass.Squares.Length)
+            {
+                string currentSquare = Convert.ToString(BoardClass.Squares[localSquareIndex], 2);
+                int currentSquareInt = int.Parse(currentSquare);
 
-            <div class="boardSquare @squareColor" title="@Convert.ToString(currentSquare, 2)">
-                @if (currentSquare != 0) {
-                    <img src="images/pieces/@imageName" alt="piece">
-                }
-            </div>
-            squareIndex++;
+                string imageName = $"{currentSquareInt}.svg";
+                bool isLightSquare = (file + rank) % 2 != 0;
+                string squareColor = isLightSquare ? "light-square" : "dark-square";
+
+                <div class="boardSquare @squareColor" title="@currentSquareInt">
+                    @if (currentSquareInt != 0)
+                    {
+                        <img @onclick="() => HandlePieceClick(currentSquareInt, localSquareIndex)" src="images/pieces/@imageName"
+                            alt="piece">
+                    }
+                </div>
+                squareIndex++;
+
+            }
+            else
+            {
+                // Handle the case where index is out of bounds
+                Console.WriteLine($"Index out of bounds: {localSquareIndex}");
+            }
         }
     }
 </div>
-
 @code {
-    public int squareIndex = 0;
     protected override void OnInitialized()
     {
         Console.WriteLine("Page has loaded, initializing board");
-        BoardClass.Board();
+        BoardClass.NewGame();
+    }
 
+    private void HandlePieceClick(int pieceInt, int index)
+    {
+        Move.DisplayMoves(pieceInt, index);
     }
 }
