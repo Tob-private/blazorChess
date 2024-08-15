@@ -13,9 +13,11 @@ namespace blazorChess.Components.Pages.Logic
     string pieceName = GetPieceName(pieceType);
 
 
-    if (pieceName != null)
+    if (pieceName != "Unknown Piece name")
     {
         Console.WriteLine($"{pieceColor} {pieceName} press");
+    } else {
+        Console.WriteLine("Unknown Piece name in move class");
     }
 
     Console.WriteLine("square index: " + squareIndex);
